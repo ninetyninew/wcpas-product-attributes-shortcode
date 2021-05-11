@@ -100,7 +100,7 @@ You will need to use the do_shortcode function. [See this link for a code snippe
 
 = How do I style it? =
 
-You can custom CSS in your theme or via the customizer, each list is a <ul> with the class .wcpas-product-attributes, to target specific attribute lists we have also included an ID of #wcpas-product-attributes-[attribute].
+You can custom CSS in your theme or via the customizer, each list is a ul element with the class .wcpas-product-attributes, to target specific attribute lists we have also included an ID of #wcpas-product-attributes-[attribute].
 
 == Changelog ==
 
