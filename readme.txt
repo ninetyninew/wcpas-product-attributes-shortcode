@@ -42,6 +42,12 @@ The shortcode is:
 - hide_empty **OPTIONAL** (Use 1 to hide empty terms, 0 to disable, default is 1)
 - show_counts **OPTIONAL** (Use 1 to enable a count next to each term, 0 to disable, default is 0)
 
+= Example Shortcode =
+
+If you have a brand attribute:
+
+[wcpas_product_attributes attribute="brand" orderby="name" order="asc" hide_empty="1" show_counts="1"]
+
 = Help/Feedback/Contributions =
 
 For help using the plugin use our [support forum](https://wordpress.org/support/plugin/wcpas-product-attributes-shortcode/).
@@ -50,11 +56,11 @@ For feature requests and bug reports use our [feedback board](https://feedback.9
 
 You can contribute to the plugin via our [GitHub repository](https://github.com/ninetyninew/wcpas-product-attributes-shortcode).
 
-= Example Shortcode =
+== Screenshots ==
 
-If you have a brand attribute:
-
-[wcpas_product_attributes attribute="brand" orderby="name" order="asc" hide_empty="1" show_counts="1"]
+1. Shortcode being added via block editor
+2. Attributes display in page/post
+3. Attributes display in text widget
 
 == Installation ==
 
