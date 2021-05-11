@@ -42,6 +42,14 @@ The shortcode is:
 - hide_empty **OPTIONAL** (Use 1 to hide empty terms, 0 to disable, default is 1)
 - show_counts **OPTIONAL** (Use 1 to enable a count next to each term, 0 to disable, default is 0)
 
+= Help/Feedback/Contributions =
+
+For help using the plugin use our [support forum](https://wordpress.org/support/plugin/wcpas-product-attributes-shortcode/).
+
+For feature requests and bug reports use our [feedback board](https://feedback.99w.co.uk/b/Product-Attributes-Shortcode-WooCommerce).
+
+You can contribute to the plugin via our [GitHub repository](https://github.com/ninetyninew/wcpas-product-attributes-shortcode).
+
 = Example Shortcode =
 
 If you have a brand attribute:
