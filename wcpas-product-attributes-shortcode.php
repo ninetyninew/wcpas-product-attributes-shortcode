@@ -4,7 +4,7 @@
  * Plugin Name: Product Attributes Shortcode
  * Plugin URI: https://99w.co.uk
  * Description: Display a list of product attribute term links via shortcode in pages, posts, widgets, templates, etc.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -31,11 +31,12 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 
 		$atts = shortcode_atts(
 			array(
-				'attribute'		=> '',
-				'orderby'		=> 'name',
-				'order'			=> 'asc',
-				'hide_empty'	=> 1, // must be 1 not true
-				'show_counts'	=> 0, // must be 0 not false
+				'attribute'			=> '',
+				'orderby'			=> 'name',
+				'order'				=> 'asc',
+				'hide_empty'		=> 1, // must be 1 not true
+				'show_counts'		=> 0, // must be 0 not false
+				'archive_links'		=> 0, // must be 0 not false
 			),
 			$atts,
 			'wcpas_product_attributes'
@@ -86,13 +87,21 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 
 							$output .= '<li>';
 
-							if ( $taxonomy->attribute_public == 1 ) {
+							if ( $atts['archive_links'] == 0 ) {
 
-								$output .= '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>';
+								$output .= '<a href="' . get_permalink( wc_get_page_id( 'shop' ) ) . '?filter_' . $taxonomy->attribute_name . '=' . $term->slug . '">' . $term->name . '</a>';
 
 							} else {
 
-								$output .= $term->name;
+								if ( $taxonomy->attribute_public == 1 ) {
+
+									$output .= '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>';
+
+								} else {
+
+									$output .= $term->name;
+
+								}
 
 							}
 
