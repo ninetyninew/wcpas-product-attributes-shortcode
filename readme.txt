@@ -2,9 +2,9 @@
 Contributors: ninetyninew
 Tags: product attributes shortcode, product attributes, product terms, product shortcode, attributes widget
 Requires at least: 5.0
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 Requires PHP: 7.0
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,21 +32,34 @@ Use the shortcode options below if required, the optional fields do not need to 
 
 `attribute`
 **REQUIRED** - The name of your product attribute, use name as shown on the WooCommerce edit attribute page, default is empty
+<hr>
 
 `orderby`
 **OPTIONAL** - Use any option from the orderby parameter [here](https://developer.wordpress.org/reference/classes/wp_term_query/__construct/), default is name
+<hr>
 
 `order`
 **OPTIONAL** - Use asc or desc, default asc
+<hr>
 
 `hide_empty`
 **OPTIONAL** - Use 1 to hide empty terms, 0 to disable, default is 1
+<hr>
 
 `show_counts`
 **OPTIONAL** - Use 1 to enable a count next to each term, 0 to disable, default is 0
+<hr>
 
 `archive_links`
 **OPTIONAL** - Use 1 to enable archive links on each term like /brand/sega, 0 to disable for links like /shop/?filter_brand=sega, default is 0
+<hr>
+
+`min_price`
+**OPTIONAL** - Use a number to enable links to include a minimum price filter, requires archive_links to be 0, default is empty
+<hr>
+
+`max_price`
+**OPTIONAL** - Use a number to enable links to include a maximum price filter, requires archive_links to be 0, default is empty
 
 = Shortcode Example =
 
@@ -100,6 +113,10 @@ The list will not include links on the terms if you are using the archive_links 
 
 The default links (unless using the archive_links option) are filter based links which use your shop page, if you have not setup and assigned a shop page (which is usually done during WooCommerce installation but can also been done later via the WooCommerce status section) then your links may not work as it relies on the shop page existing and being assigned as the shop page in WooCommerce.
 
+= min_price and max_price are not working? =
+
+These are filter based and therefore require the archive_links option to be 0.
+
 = Can I use it in a page/post/widget/etc? =
 
 Yes, you can use the shortcode anywhere in WordPress where you can normally use shortcodes.
@@ -113,6 +130,11 @@ You will need to use the do_shortcode function. [See this link for a code snippe
 You can custom CSS in your theme or via the customizer, each list is a `<ul>` element with the class `.wcpas-product-attributes`, to target specific attribute lists we have also included an ID of `#wcpas-product-attributes-pa_[attribute-name]`.
 
 == Changelog ==
+
+= 1.2.0 - 2021-07-16 =
+
+* Added: min_price option (archive_links must be false to use)
+* Added: max_price option (archive_links must be false to use)
 
 = 1.1.0 - 2021-05-12 =
 

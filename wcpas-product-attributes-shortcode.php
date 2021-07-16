@@ -4,7 +4,7 @@
  * Plugin Name: Product Attributes Shortcode
  * Plugin URI: https://99w.co.uk
  * Description: Display a list of product attribute term links via shortcode in pages, posts, widgets, templates, etc.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -37,6 +37,8 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 				'hide_empty'		=> 1, // must be 1 not true
 				'show_counts'		=> 0, // must be 0 not false
 				'archive_links'		=> 0, // must be 0 not false
+				'min_price'			=> '',
+				'max_price'			=> '',
 			),
 			$atts,
 			'wcpas_product_attributes'
@@ -89,13 +91,28 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 
 							if ( $atts['archive_links'] == 0 ) {
 
-								$output .= '<a href="' . get_permalink( wc_get_page_id( 'shop' ) ) . '?filter_' . $taxonomy->attribute_name . '=' . $term->slug . '">' . $term->name . '</a>';
+								$href = get_permalink( wc_get_page_id( 'shop' ) ) . '?filter_' . $taxonomy->attribute_name . '=' . $term->slug;
+
+								if ( '' !== $atts['min_price'] ) {
+
+									$href .= '&min_price=' . $atts['min_price'];
+
+								}
+
+								if ( '' !== $atts['max_price'] ) {
+
+									$href .= '&max_price=' . $atts['max_price'];
+
+								}
+
+								$output .= '<a href="' . $href . '">' . $term->name . '</a>';
 
 							} else {
 
 								if ( $taxonomy->attribute_public == 1 ) {
 
-									$output .= '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a>';
+									$href = get_term_link( $term );
+									$output .= '<a href="' . $href . '">' . $term->name . '</a>';
 
 								} else {
 
