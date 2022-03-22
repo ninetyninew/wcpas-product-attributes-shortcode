@@ -4,7 +4,7 @@
  * Plugin Name: Product Attributes Shortcode
  * Plugin URI: https://99w.co.uk
  * Description: Display a list of product attribute term links via shortcode in pages, posts, widgets, templates, etc.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -19,11 +19,9 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-load_plugin_textdomain( 'wcpas-product-attributes-shortcode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); // Ensures is_plugin_active() can be used here
-
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is active, works for standalone and multisite network
+if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 	function wcpas_product_attributes_shortcode( $atts ) {
 
@@ -34,9 +32,9 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 				'attribute'			=> '',
 				'orderby'			=> 'name',
 				'order'				=> 'asc',
-				'hide_empty'		=> 1, // must be 1 not true
-				'show_counts'		=> 0, // must be 0 not false
-				'archive_links'		=> 0, // must be 0 not false
+				'hide_empty'		=> 1, // Must be 1 not true
+				'show_counts'		=> 0, // Must be 0 not false
+				'archive_links'		=> 0, // Must be 0 not false
 				'min_price'			=> '',
 				'max_price'			=> '',
 			),
@@ -145,23 +143,13 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { // If WooCommerce is 
 		return $output;
 
 	}
-
 	add_shortcode( 'wcpas_product_attributes', 'wcpas_product_attributes_shortcode' );
 
-} else {
+	function wcpas_product_attributes_textdomain() {
 
-	add_action( 'admin_notices', function() {
+		load_plugin_textdomain( 'wcpas-product-attributes-shortcode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
-		// Error notice displayed to users who can edit plugins if WooCommerce is not active
-
-		if ( current_user_can( 'edit_plugins' ) ) { ?>
-
-			<div class="notice notice-error">
-				<p><?php _e( 'Product Attributes Shortcode cannot be used as WooCommerce is not active, to use Product Attributes Shortcode activate WooCommerce.', 'wcpas-product-attributes-shortcode' ); ?></p>
-			</div>
-
-		<?php }
-
-	} );
+	}
+	add_action( 'init', 'wcpas_product_attributes_textdomain' );
 
 }

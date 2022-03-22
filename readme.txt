@@ -1,10 +1,10 @@
 === Product Attributes Shortcode ===
 Contributors: ninetyninew
-Tags: product attributes shortcode, product attributes, product terms, product shortcode, attributes widget
+Tags: product attributes, woocommerce attributes, product terms, attributes, shortcode
 Requires at least: 5.0
-Tested up to: 5.7.2
+Tested up to: 5.9.2
 Requires PHP: 7.0
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -123,6 +123,11 @@ You will need to use the do_shortcode function. [See this link for a code snippe
 You can custom CSS in your theme or via the customizer, each list is a `<ul>` element with the class `.wcpas-product-attributes`, to target specific attribute lists we have also included an ID of `#wcpas-product-attributes-pa_[attribute-name]`.
 
 == Changelog ==
+
+= 1.3.0 - 2022-03-23 =
+
+* Added: wcpas_product_attributes_textdomain function
+* Fixed: Translations may not load due to load_plugin_textdomain not registered on init
 
 = 1.2.0 - 2021-07-16 =
 
