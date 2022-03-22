@@ -60,14 +60,6 @@ If you have a brand attribute, this shortcode will display all brand term links 
 
 `[wcpas_product_attributes attribute="brand" orderby="name" order="asc" hide_empty="1" show_counts="1"]`
 
-= Help/Feedback/Contributions =
-
-For help using the plugin use our [support forum](https://wordpress.org/support/plugin/wcpas-product-attributes-shortcode/).
-
-For feature requests and bug reports use our [feedback board](https://feedback.99w.co.uk/b/Product-Attributes-Shortcode-WooCommerce).
-
-You can contribute to the plugin via our [GitHub repository](https://github.com/ninetyninew/wcpas-product-attributes-shortcode).
-
 == Screenshots ==
 
 1. Shortcode being added via block editor
