@@ -118,7 +118,7 @@ You can custom CSS in your theme or via the customizer, each list is a `<ul>` el
 
 = 1.3.0 - 2022-03-23 =
 
-* Added: wcpas_product_attributes_textdomain function
+* Added: wcpas_product_attributes_translation function
 * Changed: WordPress tested up to 5.9.2
 * Fixed: Translations may not load due to load_plugin_textdomain not hooked on init
 
