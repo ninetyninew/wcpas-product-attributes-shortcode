@@ -120,7 +120,7 @@ You can custom CSS in your theme or via the customizer, each list is a `<ul>` el
 
 * Added: wcpas_product_attributes_textdomain function
 * Changed: WordPress tested up to 5.9.2
-* Fixed: Translations may not load due to load_plugin_textdomain not registered on init
+* Fixed: Translations may not load due to load_plugin_textdomain not hooked on init
 
 = 1.2.0 - 2021-07-16 =
 
