@@ -152,4 +152,22 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	}
 	add_shortcode( 'wcpas_product_attributes', 'wcpas_product_attributes_shortcode' );
 
+} else {
+
+	add_action( 'admin_notices', function() {
+
+		if ( current_user_can( 'edit_plugins' ) ) {
+	
+			?>
+	
+			<div class="notice notice-error">
+				<p><?php esc_html_e( 'Product Attributes Shortcode requires WooCommerce to be installed and activated.', 'wcpas-product-attributes-shortcode' ); ?></p>
+			</div>
+	
+			<?php
+	
+		}
+	
+	});
+
 }
