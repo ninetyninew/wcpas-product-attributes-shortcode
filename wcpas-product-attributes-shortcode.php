@@ -161,7 +161,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 			?>
 	
 			<div class="notice notice-error">
-				<p><?php esc_html_e( 'Product Attributes Shortcode requires WooCommerce to be installed and activated.', 'wcpas-product-attributes-shortcode' ); ?></p>
+				<p><strong><?php esc_html_e( 'Product Attributes Shortcode requires WooCommerce to be installed and activated.', 'wcpas-product-attributes-shortcode' ); ?></strong></p>
 			</div>
 	
 			<?php
