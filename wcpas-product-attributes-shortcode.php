@@ -19,6 +19,13 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function wcpas_product_attributes_translation() {
+
+	load_plugin_textdomain( 'wcpas-product-attributes-shortcode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
+}
+add_action( 'init', 'wcpas_product_attributes_translation' );
+
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
@@ -144,12 +151,5 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 	}
 	add_shortcode( 'wcpas_product_attributes', 'wcpas_product_attributes_shortcode' );
-
-	function wcpas_product_attributes_translation() {
-
-		load_plugin_textdomain( 'wcpas-product-attributes-shortcode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-
-	}
-	add_action( 'init', 'wcpas_product_attributes_translation' );
 
 }
