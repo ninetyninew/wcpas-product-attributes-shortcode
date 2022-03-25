@@ -1,6 +1,6 @@
 === Product Attributes Shortcode ===
 Contributors: ninetyninew
-Tags: product attributes, woocommerce attributes, product terms, attributes, shortcode
+Tags: product attributes, product attribute, woocommerce attributes, woocommerce attribute, product terms, product term
 Requires at least: 5.0
 Tested up to: 5.9.2
 Requires PHP: 7.0
