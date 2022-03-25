@@ -8,15 +8,17 @@ Stable tag: 1.3.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Display a list of product attribute term links via shortcode in pages, posts, widgets, templates, etc.
+Displays a list of links to all the terms from a specific WooCommerce product attribute via shortcode.
 
 == Description ==
 
-This plugin allows you to add a shortcode to pages, posts, widgets, etc which displays a list of links to all the terms for a specific WooCommerce product attribute.
+### Displays a list of links to all the terms from a specific WooCommerce product attribute via shortcode.
 
-We created this plugin because WooCommerce includes a "Filter products by attribute" widget, however this has a list of attribute terms which gets reduced once a term is clicked because the terms available are based on the products currently filtered (which could have other filters applied for category and other attributes). We needed to display a static list of terms which does not reduce as you click the terms, we have also added the option to choose whether the term link should be a shop filter or an archive based link.
+Perfect if, for example, you have a brands attribute with several brand terms (e.g. Apple, Microsoft) and you want to display a list of all the brand terms from this attribute with links to a page containing all products from a particular brand term. Maybe you have a color attribute, you can quickly add a list of all the colors from your store so a customer can click through and see all products that are a particular color.
 
-So for example, with this plugin if you have an attribute such as brand, you can display a list of all the brand links which isn't effected by filtering. You can use it to create a list of term links for any product attribute. We've used the shortcode in pages, posts, widgets and in templates.
+We created this plugin out of neccessity because WooCommerce includes a "Filter products by attribute" widget, however this has a list of attribute terms which gets reduced once a term is clicked because the terms available are based on the products currently filtered (which could have other filters applied for category and other attributes). We needed to display a static list of terms which does not reduce as you click the terms to include in the footer of a website, we have also added the option to choose whether the term link should be a shop filter or an archive based link.
+
+You can add the shortcode anywhere in your site, such as in pages, posts, widgets and directly in templates using do_shortcode (see FAQs).
 
 = Shortcode Example =
 
@@ -116,7 +118,7 @@ You can custom CSS in your theme or via the customizer, each list is a `<ul>` el
 
 == Changelog ==
 
-= 1.3.0 - 2022-03-23 =
+= 1.3.0 - 2022-03-25 =
 
 * Added: wcpas_product_attributes_translation function
 * Added: WooCommerce not installed/activated notice
