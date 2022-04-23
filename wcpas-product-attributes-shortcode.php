@@ -4,7 +4,7 @@
  * Plugin Name: Product Attributes Shortcode
  * Plugin URI: https://99w.co.uk
  * Description: Display a list of product attribute term links via shortcode in pages, posts, widgets, templates, etc.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Author: 99w
@@ -16,7 +16,9 @@
  */
 
 if ( !defined( 'ABSPATH' ) ) {
+
 	exit;
+
 }
 
 function wcpas_product_attributes_translation() {
@@ -26,7 +28,7 @@ function wcpas_product_attributes_translation() {
 }
 add_action( 'init', 'wcpas_product_attributes_translation' );
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
@@ -61,7 +63,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 			// Loop taxonomies
 
-			foreach( $attribute_taxonomies as $taxonomy ) {
+			foreach ( $attribute_taxonomies as $taxonomy ) {
 
 				// If attribute matches shortcode parameter
 
@@ -88,9 +90,9 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 						// Output the list
 
-						$output .= '<ul class="wcpas-product-attributes" id="wcpas-product-attributes-' . $taxonomy_id . '">';
+						$output .= '<ul class="wcpas-product-attributes" id="wcpas-product-attributes-' . esc_attr( $taxonomy_id ) . '">';
 
-						foreach( $terms as $term ) {
+						foreach ( $terms as $term ) {
 
 							$output .= '<li>';
 
@@ -110,18 +112,18 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 								}
 
-								$output .= '<a href="' . $href . '">' . $term->name . '</a>';
+								$output .= '<a href="' . esc_url( $href ) . '">' . wp_kses_post( $term->name ) . '</a>';
 
 							} else {
 
 								if ( $taxonomy->attribute_public == 1 ) {
 
 									$href = get_term_link( $term );
-									$output .= '<a href="' . $href . '">' . $term->name . '</a>';
+									$output .= '<a href="' . esc_url( $href ) . '">' . wp_kses_post( $term->name ) . '</a>';
 
 								} else {
 
-									$output .= $term->name;
+									$output .= wp_kses_post( $term->name );
 
 								}
 
@@ -129,7 +131,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 							if ( $atts['show_counts'] == 1 ) {
 
-								$output .= ' ' . __( '(', 'wcpas-product-attributes-shortcode' ) . $term->count . __( ')', 'wcpas-product-attributes-shortcode' );
+								$output .= ' ' . esc_html__( '(', 'wcpas-product-attributes-shortcode' ) . wp_kses_post( $term->count ) . esc_html__( ')', 'wcpas-product-attributes-shortcode' );
 
 							}
 
@@ -147,7 +149,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
 		}
 
-		return $output;
+		return wp_kses_post( $output );
 
 	}
 	add_shortcode( 'wcpas_product_attributes', 'wcpas_product_attributes_shortcode' );

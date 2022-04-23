@@ -2,9 +2,9 @@
 Contributors: ninetyninew
 Tags: product attributes, product attribute, woocommerce attributes, woocommerce attribute, product terms, product term
 Requires at least: 5.0
-Tested up to: 5.9.2
+Tested up to: 5.9.3
 Requires PHP: 7.0
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -117,6 +117,11 @@ You will need to use the do_shortcode function. [See this link for a code snippe
 You can custom CSS in your theme or via the customizer, each list is a `<ul>` element with the class `.wcpas-product-attributes`, to target specific attribute lists we have also included an ID of `#wcpas-product-attributes-pa_[attribute-name]`.
 
 == Changelog ==
+
+= 1.4.0 - 2022-04-23 =
+
+* Added: Escaping of URLs, attributes and overall attributes list markup
+* Changed: WordPress tested up to 5.9.3
 
 = 1.3.0 - 2022-03-25 =
 
