@@ -38,7 +38,7 @@
  
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="wcpas-product-attributes-shortcode" />
+			<property name="text_domain" type="array" value="wcpas-product-attributes-shortcode,woocommerce,default" />
 		</properties>
 	</rule>
 
